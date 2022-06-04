@@ -1,0 +1,95 @@
+[
+  uuid(DD489CF5-AC18-45A1-958E-7DE3B6D3619C), 
+  version(1.0), 
+  helpstring("Project1 Library")
+
+]
+library Project1
+{
+
+  importlib("stdole2.tlb");
+  importlib("midas.dll");
+  importlib("stdvcl40.dll");
+
+  [
+    uuid(EF813438-7D66-45D2-9782-04CAFD6A8DEB),
+    version(1.0),
+    helpstring("Dispatch interface for MyServer Object"),
+    dual,
+    oleautomation
+  ]
+   interface IMyServer: IAppServer
+  {
+    [
+    id(0x0000012D)
+    ]
+    HRESULT _stdcall smAddBrigad([in] long ID, [in] long ID_OTD, [in] long ID_EMPL, [in] BSTR NAM );
+    [
+    id(0x0000012E)
+    ]
+    HRESULT _stdcall smDeleteBrigad([in] long ID );
+    [
+    id(0x0000012F)
+    ]
+    HRESULT _stdcall smAddDolzh([in] long ID, [in] BSTR NAM );
+    [
+    id(0x00000130)
+    ]
+    HRESULT _stdcall smDeleteDolzh([in] long ID );
+    [
+    id(0x00000131)
+    ]
+    HRESULT _stdcall smAddEmerg([in] long ID_F, [in] BSTR REASON, [in] BSTR RES );
+    [
+    id(0x00000132)
+    ]
+    HRESULT _stdcall smDeleteEmerg([in] long ID_F );
+    [
+    id(0x00000133)
+    ]
+    HRESULT _stdcall smAddEmpl([in] long ID, [in] BSTR FIO, [in] long ID_DOL, [in] DATE DAT_PR, [in] BSTR POL, [in] DATE DAT_BIRTH, [in] long CHILDREN, [in] float SALARY );
+    [
+    id(0x00000134)
+    ]
+    HRESULT _stdcall smDeleteEmpl([in] long ID );
+    [
+    id(0x00000135)
+    ]
+    HRESULT _stdcall smAddFlight([in] long ID, [in] long ID_PL, [in] long ID_ROUTE );
+    [
+    id(0x00000136)
+    ]
+    HRESULT _stdcall smDeleteFlight([in] long ID );
+    [
+    id(0x00000137)
+    ]
+    HRESULT _stdcall smAddOtdel([in] long ID, [in] BSTR NAM );
+    [
+    id(0x00000138)
+    ]
+    HRESULT _stdcall smDeleteOtdel([in] long ID );
+    [
+    id(0x00000139)
+    ]
+    HRESULT _stdcall smAddPass([in] long ID, [in] BSTR FIO, [in] long PASSPORT, [in] BSTR POL, [in] DATE DATE_BIRTH );
+    [
+    id(0x0000013A)
+    ]
+    HRESULT _stdcall smDeletePass([in] long ID );
+    [
+    id(0x0000013B)
+    ]
+    HRESULT _stdcall Method1( void );
+  };
+
+  [
+    uuid(F1E26B7E-F02C-4EAD-8785-9CBD6069FE50),
+    version(1.0),
+    helpstring("MyServer Object")
+  ]
+  coclass MyServer
+  {
+    [default] interface IMyServer;
+  };
+
+}; 
