@@ -31,6 +31,7 @@ uses
   Unit27 in 'Unit27.pas' {fmReturn},
   Unit28 in 'Unit28.pas' {fmNewReturn},
   Unit29 in 'Unit29.pas' {Ot1},
+  Unit1 in 'Unit1.pas' {Form1},
   Unit30 in 'Unit30.pas' {Ot2},
   Unit31 in 'Unit31.pas' {Ot3},
   Unit32 in 'Unit32.pas' {Ot4};
