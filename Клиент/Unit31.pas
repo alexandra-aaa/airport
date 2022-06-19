@@ -199,3 +199,42 @@ DataSource1.DataSet:=dm.cdsTmp;
 end;
 
 end.
+
+
+
+
+procedure TOt3.Button4Click(Sender: TObject);
+begin
+  if dm.cdsTmp.Active then
+  begin
+    dm.cdsTmp.CancelUpdates;
+    dm.cdsTmp.Close;
+  end;
+  dm.cdsTmp.Open;
+  dm.cdsTmp.AddIndex('indxID','ID',[],'','');
+  dm.cdsTmp.IndexFieldNames:='ID';
+  dm.cdsTicket.First;
+    while not dm.cdsTicket.Eof do
+    begin
+    if  (dm.cdsTicketPLACE_FROM.Value = Ot3.Edit2.Text) and (dm.cdsTicketPLACE_IN.Value = Ot3.Edit3.Text) and
+    (dm.cdsTicketTIME.Value = Ot3.Edit5.Text) and (DateToStr(dm.cdsTicketDATE_FL.Value) = DateToStr(Ot3.DateTimePicker1.Date)) and
+    (dm.cdsTicketID_FL.Text = Ot3.Edit1.Text) and (dm.cdsTicketPRICE.Text = Ot3.Edit4.Text) and (dm.cdsTicketRESER.Value='הא')  then
+    begin
+     dm.cdsTmp.Append;
+     dm.cdsTmp.FieldByName('ID').Value:=dm.cdsTicketID.Value;
+     dm.cdsTmp.FieldByName('NAME').Value:=dm.cdsTicketFIO.Value;
+
+     dm.cdsTmp.Post;
+     end;
+     dm.cdsTicket.Next;
+      end;
+
+
+dm.cdsTmp.FieldByName('ID').DisplayLabel:='id';
+dm.cdsTmp.FieldByName('NAME').DisplayLabel:='ÈÌ‗';
+dm.cdsTmp.FieldByName('ID').DisplayWidth:=10;
+ dm.cdsTmp.FieldByName('NAME').DisplayWidth:=15;
+DataSource1.DataSet:=dm.cdsTmp;
+end;
+
+end.
