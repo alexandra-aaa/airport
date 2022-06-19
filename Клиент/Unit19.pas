@@ -31,6 +31,7 @@ type
 
 var
   fmFlight: TfmFlight;
+  fmFlight: TfmFlightРµ;
 
 implementation
 
@@ -48,7 +49,7 @@ begin
      try
        dm.DCOMConnection1.AppServer.smAddFlight(0, fmNewFlight.plane_id, fmNewFlight.route_id );
      except
-       MessageDlg('Ошибка записи', mtError, [mbOk], 0);
+       MessageDlg('пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ', mtError, [mbOk], 0);
      end;
      dm.cdsFlight.Refresh;
      end;
@@ -65,7 +66,7 @@ begin
      try
        dm.DCOMConnection1.AppServer.smAddFlight(dm.cdsFlightID.Value, fmNewFlight.plane_id, fmNewFlight.route_id );
      except
-       MessageDlg('Ошибка записи', mtError, [mbOk], 0);
+       MessageDlg('пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ', mtError, [mbOk], 0);
      end;
      dm.cdsFlight.Refresh;
      end;
@@ -78,7 +79,7 @@ end;
 
 procedure TfmFlight.N3Click(Sender: TObject);
 begin
-MessageDlg('Удалить этот рейс?', mtConfirmation, [mbYes, mbNo], 0);
+MessageDlg('пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ?', mtConfirmation, [mbYes, mbNo], 0);
 dm.DCOMConnection1.AppServer.smDeleteFlight(dm.cdsFlightID.Text);
 dm.cdsFlight.Refresh;
 end;
